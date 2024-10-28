@@ -5,7 +5,7 @@
   - [x] Trees
   - [x] Rocks
   - [x] Bushes
-  - [ ] Prevent trees/rocks/bushes from intersection each other
+  - [x] Prevent trees/rocks/bushes from intersection each other
 - [ ] Player Character
   - [ ] Draw character on the screen
   - [ ] Point and click controls
