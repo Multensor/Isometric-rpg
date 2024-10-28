@@ -3,7 +3,7 @@
 - [ ] Overworld
   - [x] Terrain - Flat plane
   - [x] Trees
-  - [ ] Rocks
+  - [x] Rocks
   - [ ] Bushes
 - [ ] Player Character
   - [ ] Draw character on the screen
