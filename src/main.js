@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import Stats from 'three/addons/libs/stats.module.js'
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js'
-import { Terrain } from './terrain'
+import { World } from './world'
 
 // Add GUI and Stats
 const gui = new GUI()
@@ -21,8 +21,8 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const controls = new OrbitControls(camera, renderer.domElement)
 
 // Create and add terrain to scene
-const terrain = new Terrain(10, 10)
-scene.add(terrain)
+const world = new World(10, 10)
+scene.add(world)
 
 // Add sun(DirectionalLight)
 const sun = new THREE.DirectionalLight()
@@ -52,10 +52,10 @@ window.addEventListener('resize', () => {
 })
 
 // GUI Settings
-const terrainFolder = gui.addFolder('Terrain')
-terrainFolder.add(terrain, 'width', 1, 20, 1).name('Width')
-terrainFolder.add(terrain, 'height', 1, 20, 1).name('Height')
-terrainFolder.addColor(terrain.terrain.material, 'color').name('Color')
-terrainFolder.onChange(() => {
-  terrain.createTerrain()
+const worldFolder = gui.addFolder('World')
+worldFolder.add(world, 'width', 1, 20, 1).name('Width')
+worldFolder.add(world, 'height', 1, 20, 1).name('Height')
+worldFolder.addColor(world.terrain.material, 'color').name('Color')
+worldFolder.onChange(() => {
+  world.createTerrain()
 })

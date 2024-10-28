@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-export class Terrain extends THREE.Mesh {
+export class World extends THREE.Mesh {
   constructor(width, height) {
     super()
 
@@ -8,10 +8,12 @@ export class Terrain extends THREE.Mesh {
     this.height = height
     this.treeCount = 10
     this.rockCount = 20
+    this.bushCount = 10
 
     this.createTerrain()
     this.createTrees()
     this.createRocks()
+    this.createBushes()
   }
 
   createTerrain() {
@@ -57,8 +59,8 @@ export class Terrain extends THREE.Mesh {
     const maxRockHeight = 0.8
     const rockMaterial = new THREE.MeshStandardMaterial({ color: 0xb0b0b0, flatShading: true })
 
-    this.rocks = new THREE.Group()
-    this.add(this.rocks)
+    this.bushes = new THREE.Group()
+    this.add(this.bushes)
 
     for (let i = 0; i < this.rockCount; i++) {
       const radius = minRockRadius + Math.random() * (maxRockRadius - minRockRadius)
@@ -71,7 +73,30 @@ export class Terrain extends THREE.Mesh {
         Math.floor(this.height * Math.random()) + 0.5
       )
       rockMesh.scale.y = height
-      this.rocks.add(rockMesh)
+      this.bushes.add(rockMesh)
+    }
+  }
+
+  createBushes() {
+    const minBushRadius = 0.1
+    const maxBushRadius = 0.3
+
+    const bushMaterial = new THREE.MeshStandardMaterial({ color: 0x80a040, flatShading: true })
+
+    this.bushes = new THREE.Group()
+    this.add(this.bushes)
+
+    for (let i = 0; i < this.bushCount; i++) {
+      const radius = minBushRadius + Math.random() * (maxBushRadius - minBushRadius)
+      const height = minBushRadius + Math.random() * (maxBushRadius - minBushRadius)
+      const bushGeometry = new THREE.SphereGeometry(radius, 8, 8)
+      const bushMesh = new THREE.Mesh(bushGeometry, bushMaterial)
+      bushMesh.position.set(
+        Math.floor(this.width * Math.random()) + 0.5,
+        radius,
+        Math.floor(this.height * Math.random()) + 0.5
+      )
+      this.bushes.add(bushMesh)
     }
   }
 }
