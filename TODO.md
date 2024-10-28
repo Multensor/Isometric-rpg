@@ -6,6 +6,7 @@
   - [x] Rocks
   - [x] Bushes
   - [x] Prevent trees/rocks/bushes from intersection each other
+  - [x] Add controls to UI for world generation
 - [ ] Player Character
   - [ ] Draw character on the screen
   - [ ] Point and click controls
