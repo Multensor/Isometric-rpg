@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import Stats from 'three/addons/libs/stats.module.js';
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import { World } from './world';
+import { Player } from './player';
 
 // Add GUI and Stats
 const gui = new GUI();
@@ -13,6 +14,7 @@ document.body.appendChild(stats.dom);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setAnimationLoop(animate);
+renderer.setPixelRatio(devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // Create scene with orbitcontrols
@@ -23,6 +25,10 @@ const controls = new OrbitControls(camera, renderer.domElement);
 // Create and add terrain to scene
 const world = new World(10, 10);
 scene.add(world);
+
+// Add player
+const player = new Player();
+scene.add(player);
 
 // Add sun(DirectionalLight)
 const sun = new THREE.DirectionalLight();

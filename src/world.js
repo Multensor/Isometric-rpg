@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export class World extends THREE.Mesh {
+export class World extends THREE.Group {
   #objectMap = new Map();
 
   constructor(width, height) {
