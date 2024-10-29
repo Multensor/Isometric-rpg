@@ -7,8 +7,9 @@
   - [x] Bushes
   - [x] Prevent trees/rocks/bushes from intersection each other
   - [x] Add controls to UI for world generation
+  - [x] Gid Lines
 - [ ] Player Character
-  - [ ] Draw character on the screen
+  - [x] Draw character on the screen
   - [ ] Point and click controls
   - [ ] Navigation (ignore obstacles)
     - [ ] A\* algorithm

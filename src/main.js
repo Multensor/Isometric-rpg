@@ -22,6 +22,11 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const controls = new OrbitControls(camera, renderer.domElement);
 
+// Set default camera position and controls
+controls.target.set(4, 0, 5);
+camera.position.set(0, 2, 0);
+controls.update();
+
 // Create and add terrain to scene
 const world = new World(10, 10);
 scene.add(world);
@@ -40,10 +45,6 @@ scene.add(sun);
 const ambient = new THREE.AmbientLight();
 ambient.intensity = 0.5;
 scene.add(ambient);
-
-// Set default camera position and controls
-camera.position.set(10, 2, 10);
-controls.update();
 
 function animate() {
   controls.update();

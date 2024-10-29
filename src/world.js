@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 
+const textureLoader = new THREE.TextureLoader();
+const gridTexture = new textureLoader.load('textures/grid.png');
+
 export class World extends THREE.Group {
   #objectMap = new Map();
 
@@ -67,12 +70,19 @@ export class World extends THREE.Group {
   }
 
   createTerrain() {
+    gridTexture.repeat = new THREE.Vector2(this.width, this.height);
+    gridTexture.wrapS = THREE.RepeatWrapping;
+    gridTexture.wrapT = THREE.RepeatWrapping;
+    gridTexture.colorSpace = THREE.SRGBColorSpace;
+
     if (this.terrain) {
       this.terrain.geometry.dispose();
       this.terrain.material.dispose();
       this.remove(this.terrain);
     }
-    const terrainMaterial = new THREE.MeshStandardMaterial({ color: 0x50a000 });
+    const terrainMaterial = new THREE.MeshStandardMaterial({
+      map: gridTexture
+    });
     const terrainGeometry = new THREE.PlaneGeometry(this.width, this.height, this.width, this.height);
 
     this.terrain = new THREE.Mesh(terrainGeometry, terrainMaterial);
