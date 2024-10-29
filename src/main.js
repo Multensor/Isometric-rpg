@@ -32,7 +32,7 @@ const world = new World(10, 10);
 scene.add(world);
 
 // Add player
-const player = new Player();
+const player = new Player(camera, world.terrain);
 scene.add(player);
 
 // Add sun(DirectionalLight)

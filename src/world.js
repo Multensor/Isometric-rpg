@@ -87,6 +87,7 @@ export class World extends THREE.Group {
     const terrainGeometry = new THREE.PlaneGeometry(this.width, this.height, this.width, this.height);
 
     this.terrain = new THREE.Mesh(terrainGeometry, terrainMaterial);
+    this.terrain.name = 'Terrain';
     this.terrain.rotation.x = -Math.PI / 2;
     this.terrain.position.set(this.width / 2, 0, this.height / 2);
     this.add(this.terrain);

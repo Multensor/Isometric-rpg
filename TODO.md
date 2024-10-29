@@ -10,7 +10,7 @@
   - [x] Gid Lines
 - [ ] Player Character
   - [x] Draw character on the screen
-  - [ ] Point and click controls
+  - [x] Point and click controls
   - [ ] Navigation (ignore obstacles)
     - [ ] A\* algorithm
   - [ ] Improved navigation (obstacle avoidance)
